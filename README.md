@@ -1,3 +1,7 @@
+# movie-app
+
+Wep application to view information of your favorites tv shows and films
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
