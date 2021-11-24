@@ -4,11 +4,13 @@ import thunk from "redux-thunk";
 import { detailsReducer } from "./reducers/detailsReducer";
 import { moviesReducer } from "./reducers/moviesReducer";
 import { selectedReducer } from "./reducers/selectedReducer";
+import { appReducer } from "./reducers/appReducer";
 
 const reducers = combineReducers({
   detailsReducer: detailsReducer,
   moviesReducer: moviesReducer,
   selectedReducer: selectedReducer,
+  appReducer: appReducer,
 });
 
 export const reduxStore = createStore(

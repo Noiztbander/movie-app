@@ -1,5 +1,6 @@
 import React from "react";
 import MainHeader from "../components/MainHeader/MainHeader";
+import MainAside from "../components/MainAside/MainAside";
 import "./MainLayout.scss";
 
 function getDisplayName(WrappedComponent) {
@@ -15,6 +16,7 @@ function MainLayout(WrappedComponent) {
     return (
       <section className="MainLayout">
         <MainHeader />
+        <MainAside />
         <WrappedComponent {...props} />
       </section>
     );

@@ -14,12 +14,13 @@ function MainHeader() {
           <img alt="logo_image" src={logo} />
         </div>
         <div
-          style={{ width: "300px" }}
+          style={{ width: "350px" }}
           className="d-flex  gap-4 justify-content-center align-items-center"
         >
+          <i className="fas fa-chevron-down text-white"></i>
           <div className="profilePicture__container">
             <img
-              src="https://res.cloudinary.com/partycle/image/upload/v1632697772/default_profile.png"
+              src="https://res.cloudinary.com/partycle/image/upload/v1634826606/users/Bg778POM2maxqDbLpNw35RMo8IM2/profile/Bg778POM2maxqDbLpNw35RMo8IM2.jpg"
               alt="profile-img"
             />
           </div>

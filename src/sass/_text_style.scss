@@ -15,9 +15,9 @@
   --linkPhoneSize: 0.8rem;
   --iconPhoneSize: 1rem;
   --pDesktopSize: 1rem;
-  --h1DesktopSize: 2rem;
-  --h2DesktopSize: 1.7rem;
-  --h3DesktopSize: 1.5rem;
+  --h1DesktopSize: 3.5rem;
+  --h2DesktopSize: 3rem;
+  --h3DesktopSize: 2rem;
   --h4DesktopSize: 1.3rem;
   --h5DesktopSize: 1.1rem;
   --h6DesktopSize: 0.8rem;
@@ -33,7 +33,8 @@ h5,
 h6 {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  font-family: "Saira", sans-serif;
+  // font-family: "Saira", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-transform: none;
   letter-spacing: 1px;
   color: var(--pureWhite);
@@ -76,6 +77,20 @@ i {
   font-size: var(--iconDesktopSize);
 }
 
+
+.vertical{
+  writing-mode:tb-rl;
+  -webkit-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform:rotate(90deg);
+  transform: rotate(90deg);
+  white-space:nowrap;
+  display:block;
+  bottom:0;
+  width:20px;
+  height:20px;
+}
 @media (max-width: 1000px) {
   h1 {
     font-size: var(--h1PhoneSize);

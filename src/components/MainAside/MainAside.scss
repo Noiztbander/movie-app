@@ -1,0 +1,23 @@
+.sideMenu__main--container {
+  position: absolute;
+  left: 2vw;
+  top: 25vh;
+  transform: rotate(180deg);
+  writing-mode: vertical-lr;
+  height: 50vh;
+  width: 50px;
+}
+.sideMenu__main--container > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 0;
+  margin-bottom: 0;
+  gap: 3%;
+}
+
+.activeLink{
+  border-left: 2px solid rgb(255, 255, 255);
+}
