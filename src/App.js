@@ -20,10 +20,11 @@ function App() {
       });
       dispatch({
         type: "updateSelectedMedia/movie",
-        payload: response.results[0],
+        payload: { position_number: 1, ...response.results[0] },
       });
     });
     getPopularTvShows().then((response) => {
+      console.log(response);
       dispatch({
         type: "getAllTvShows/movies",
         payload: response,
@@ -36,7 +37,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path={HOME_URL} exact element={<Home />} />
-        <Route path={DETAIL_URL} exact element={<DetailsPage />} />
+        <Route path={DETAIL_URL + "/:id"} exact element={<DetailsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -1,41 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
 import MainLayout from "../../HighOrderComponents/MainLayout";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import ImagesCarousel from "../../components/ImagesCarousel/ImagesCarousel";
+import MainBackground from "../../components/MainBackground/MainBackground";
+import OffCanvasMediaList from "../../components/OffCanvasMediaList/OffCanvasMediaList";
+import { useNavigate } from "react-router-dom";
+import { DETAIL_URL } from "../../constants/routes";
+import { getTvShowById, getMovieById } from "../../api/moviesCalls.js";
+import LoadingButton from "../../components/LoadingButton/LoadingButton";
+
 import "./Home.scss";
 
 function Home() {
   const movieInfo = useSelector((state) => state.moviesReducer);
+  const appInfo = useSelector((state) => state.appReducer);
   const selectedInfo = useSelector((state) => state.selectedReducer);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  function getMovieSelected(id) {
+    setIsLoading(true);
+    getMovieById(id).then((res) => {
+      dispatch({
+        type: "update/detailsPage",
+        payload: { loaded: true, ...res },
+      });
+      navigate(DETAIL_URL + "/" + id);
+    });
+  }
+
+  function getTvShowSelected(id) {
+    setIsLoading(true);
+    getTvShowById(id).then((res) => {
+      dispatch({
+        type: "update/detailsPage",
+        payload: { loaded: true, ...res },
+      });
+      navigate(DETAIL_URL + "/" + id);
+    });
+  }
+
   return (
-    <section className="home__main--section">
-      <section className="text__section">
-        <div className="d-flex flex-column gap-4 px-4">
-          <h4>{movieInfo.movies.results?.length}</h4>
-          <h1>{selectedInfo?.title}</h1>
-          <h3>{selectedInfo?.release_date}</h3>
-          <h5>{selectedInfo?.overview}</h5>
-          <div className="d-flex justify-content-between align-items-center w-100 gap-3">
-            <div className="d-flex flex-column justify-content-start aling-items-center">
-              <h3>Popularity</h3>
-              <h5>{selectedInfo?.vote_average}</h5>
+    <section className="MainBackground">
+      <div className="home__main--section">
+        <section className="info__main--section">
+          <div className="d-flex flex-column gap-4">
+            <h4>
+              {selectedInfo?.position_number} from
+              {movieInfo.movies.results?.length}
+            </h4>
+            <h1>{selectedInfo?.title || selectedInfo?.name}</h1>
+            <h3>
+              {selectedInfo?.release_date || selectedInfo?.first_air_date}
+            </h3>
+            {selectedInfo?.overview === "" ? (
+              <h5 className="text-danger">No description</h5>
+            ) : (
+              <h5 className="truncate__height" style={{ maxHeight: "20vh" }}>
+                {selectedInfo?.overview}
+              </h5>
+            )}
+
+            <div className="d-flex justify-content-between align-items-center w-100 gap-3">
+              <div className="d-flex flex-column justify-content-start aling-items-center gap-3">
+                <h3>vote average</h3>
+                <h5>{selectedInfo?.vote_average}</h5>
+              </div>
             </div>
-            <div className="d-flex flex-column justify-content-start aling-items-center">
-              <h3>Popularity</h3>
-              <h5>{selectedInfo?.vote_average}</h5>
-            </div>
-            <div className="d-flex flex-column justify-content-start aling-items-center">
-              <h3>Popularity</h3>
-              <h5>{selectedInfo?.vote_average}</h5>
-            </div>
+
+            <LoadingButton
+              disabled={isLoading}
+              isSubmmiting={isLoading}
+              sendingText="Loading..."
+              idleText="MORE INFO"
+              handleClick={
+                appInfo.selectedMedia === "movies"
+                  ? () => {
+                      getMovieSelected(selectedInfo?.id);
+                    }
+                  : () => {
+                      getTvShowSelected(selectedInfo?.id);
+                    }
+              }
+              className="loadingButtom"
+            />
           </div>
-        </div>
-        <div>
-          <h1>01 ----------------------  02 03 04 05</h1>
-        </div>
-      </section>
-      <section className="imageSlider__section">
-        <h1>01 02 03 04 05</h1>
-      </section>
+        </section>
+        <section className="imageSlider__section">
+          {appInfo.selectedMedia === "movies" ? (
+            <ImagesCarousel mediaToRender={movieInfo.movies?.results} />
+          ) : (
+            <ImagesCarousel mediaToRender={movieInfo.tvShows?.results} />
+          )}
+        </section>
+      </div>
+      <OffCanvasMediaList />
+      <div className="blur__images"></div>
+      <MainBackground red="0.2" blue="0.1" green="0.2" />
     </section>
   );
 }

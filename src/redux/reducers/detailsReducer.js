@@ -1,10 +1,11 @@
 const initialState = {
-  movieDetails: {},
+  loaded: false,
 };
 
 export const detailsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "getDetails/detailsPage":
+    case "update/detailsPage":
+      state = action.payload;
       return { ...state };
     default:
       return state;

@@ -1,0 +1,83 @@
+.imagesCarousel__container {
+  position: relative;
+  min-height: 200px;
+  max-width: 100vw;
+}
+
+.imagesCarousel__container > ul {
+  padding-top: 1%;
+  margin-top: 1%;
+  padding-right: 40vw;
+  padding-left: 40vw;
+  position: relative;
+  list-style: none;
+  display: flex;
+  max-width: 100vw;
+  height: 80vh;
+  gap: 2vw;
+}
+
+.carrousel__item--movie {
+  width: 30vw !important;
+  height: 100%;
+}
+
+.react-multiple-carousel__arrow {
+  display: none;
+}
+
+.imageContainer {
+  width: 30vw !important;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.imageContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  // user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.sliderDot__list--class {
+  position: absolute;
+  display: flex;
+  top: 93.4vh;
+  left: 8.6vw;
+  z-index: 1000;
+  width: 23vw;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 1vw;
+}
+
+.carrousel__left--arrow {
+  position: absolute;
+  top: 82vh;
+  left: 6.6vw;
+  z-index: 9000;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.carrousel__right--arrow {
+  position: absolute;
+  top: 82vh;
+  left: 34vw;
+  z-index: 9000;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.borderImage {
+  border: solid rgb(0, 0, 0) 3px;
+  transition: 200ms;
+}

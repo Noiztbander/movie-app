@@ -1,26 +1,88 @@
+.MainBackground {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  // mix-blend-mode: darken;
+  // background-color: rgba(0, 0, 0, 0.623);
+  // box-shadow: inset 1vw 1vw 40vw 15vw rgba(0, 0, 0, 0.575);
+}
+
 .home__main--section {
   display: grid;
   width: 100%;
-  height: 100%;
-  grid-template-columns: 1fr 1fr;
+  // height: 100%;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
-.text__section {
+.info__main--section {
+  position: absolute;
+  left: 0;
   display: grid;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 200px;
-  width: 100%;
+  grid-template-rows: 1fr;
+  width: 50vw;
   height: 100%;
   padding-left: 6vw;
+  padding-right: 4vw;
+  z-index: 100;
+  padding-bottom: 24vh;
+}
+
+.info__section {
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+  grid-gap: 5%;
 }
 
 .imageSlider__section {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.blur__images {
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  width: 50vw;
+  // background-color: rgba(24, 24, 24, 0.705);
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 0.739),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 50;
+}
+.loadingButtom {
+  background-color: transparent;
+  border: 0;
+  padding: 10px;
+  mix-blend-mode: difference;
+  min-width: 170px;
+  width: 10vw;
+  text-align: center;
+  padding-left: 0px;
+  color: rgb(95, 95, 95);
+  transition: all 500ms;
+}
+.loadingButtom:hover {
+  text-align: center;
+  background-color: var(--transparentLowGray);
+  color: rgb(255, 255, 255);
+  mix-blend-mode: unset;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1.2rem;
+  transition: all 500ms;
 }
 
 @media (max-width: 1000px) {
@@ -33,7 +95,7 @@
     padding-top: 100px;
   }
 
-  .text__section {
+  .info__main--section {
     background-color: red;
     width: 100%;
     height: 100%;
