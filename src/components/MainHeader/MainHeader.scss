@@ -3,12 +3,13 @@
   top: 0;
   height: 200px;
   width: 100%;
+  z-index: 200;
 }
 
 .logo__container {
-  height: 270%;
-  transform: translate(10px, 30px);
-  width: 300px;
+  height: 100%;
+  transform: translate(1.5vw, 4vh);
+  width: 50vw;
 }
 
 .logo__container img {
@@ -23,12 +24,18 @@
   width: 100%;
   border-radius: 50px;
   overflow: hidden;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  outline: solid 1px rgb(0, 0, 0);
 }
 
 .profilePicture__container img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  color: white;
+  color: rgb(0, 0, 0);
+}
+
+.textPlaylistHeader {
+  color: black;
+  text-shadow: unset;
 }

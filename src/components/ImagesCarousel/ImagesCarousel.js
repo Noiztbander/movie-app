@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import { useDispatch } from "react-redux";
 
 import "./ImagesCarousel.scss";
 
 function ImagesCarousel({ mediaToRender }) {
+  useEffect(() => {
+    setTimeout(() => {
+      const buttoms = document.querySelectorAll(
+        ".sliderDot__list--class > li > button",
+      );
+      buttoms.forEach((buttom, index) => {
+        buttom.classList.add("btn");
+        buttom.classList.add("blend-Mode");
+        buttom.innerHTML = index + 1;
+      });
+    }, 500);
+  }, []);
   const dispatch = useDispatch();
 
-  function displaySelectedFilm(media, index) {
+  function displaySelectedFilm(event, media, index) {
     dispatch({
       type: "updateSelectedMedia/movie",
       payload: { position_number: index, ...media },
     });
+    handleActiveImage(event);
   }
 
-  function ArrowFix(arrowProps) {
-    const { carouselState, children, ...restArrowProps } = arrowProps;
-    return <span {...restArrowProps}> {children} </span>;
+  function handleActiveImage(event) {
+    console.log(event.target);
+    const imagesCarousel = document.querySelectorAll(
+      ".imagesCarousel__container > ul > li > div >img",
+    );
+    imagesCarousel.forEach((image) => image.classList.remove("borderImage"));
+    const selectedImage = event.target;
+    selectedImage.classList.add("borderImage");
   }
 
   return (
@@ -26,54 +44,46 @@ function ImagesCarousel({ mediaToRender }) {
           additionalTransfrom={0}
           arrows
           ssr={true} // means to render carousel on server-side.
-          autoPlaySpeed={10}
+          autoPlaySpeed={10000}
           centerMode={false}
           containerClass="imagesCarousel__container"
           dotListClass="sliderDot__list--class"
           draggable={true}
           focusOnSelect={false}
-          infinite={true}
+          infinite={false}
           itemClass="carrousel__item--movie"
           keyBoardControl
-          // customLeftArrow={
-          //   <ArrowFix>
-          //     <i className="fas fa-chevron-left carrousel__left--arrow"></i>
-          //   </ArrowFix>
-          // }
-          // customRightArrow={
-          //   <ArrowFix>
-          //     <i className="fas fa-chevron-right carrousel__right--arrow"></i>
-          //   </ArrowFix>
-          // }
           minimumTouchDrag={0}
           renderButtonGroupOutside={false}
-          renderDotsOutside={false}
-          showDots={false}
+          renderDotsOutside={true}
+          showDots={true}
           sliderClass=""
-          slidesToSlide={2}
+          slidesToSlide={1}
           swipeable={true}
           responsive={{
             desktop: {
               breakpoint: {
                 max: 3000,
-                min: 1000,
-              },
-              items: 2,
-              partialVisibilityGutter: 40,
-            },
-            tablet: {
-              breakpoint: {
-                max: 1000,
                 min: 0,
               },
-              items: 2,
-              partialVisibilityGutter: 30,
+              items: 2.9,
+              partialVisibilityGutter: 40,
             },
+            // tablet: {
+            //   breakpoint: {
+            //     max: 1000,
+            //     min: 0,
+            //   },
+            //   items: 4,
+            //   partialVisibilityGutter: 0,
+            // },
           }}
         >
           {mediaToRender.map((media, index) => (
             <div
-              onDoubleClick={() => displaySelectedFilm(media, index + 1)}
+              onDoubleClick={(event) =>
+                displaySelectedFilm(event, media, index + 1)
+              }
               key={index}
               className="imageContainer"
             >

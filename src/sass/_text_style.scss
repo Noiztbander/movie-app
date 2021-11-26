@@ -15,7 +15,7 @@
   --linkPhoneSize: 0.8rem;
   --iconPhoneSize: 1rem;
   --pDesktopSize: 1rem;
-  --h1DesktopSize: 3.5rem;
+  --h1DesktopSize: 5.5rem;
   --h2DesktopSize: 3rem;
   --h3DesktopSize: 2rem;
   --h4DesktopSize: 1.3rem;
@@ -23,6 +23,7 @@
   --h6DesktopSize: 0.8rem;
   --linkDesktopSize: 0.8rem;
   --iconDesktopSize: 1rem;
+  --lh: 1.4rem;
 }
 
 h1,
@@ -33,11 +34,12 @@ h5,
 h6 {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  // font-family: "Saira", sans-serif;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Saira", sans-serif;
+  // font-family: "Quicksand", sans-serif;
   text-transform: none;
   letter-spacing: 1px;
   color: var(--pureWhite);
+  text-shadow: 2px 2px 10px #000000;
 }
 
 p {
@@ -47,6 +49,7 @@ p {
   text-transform: none;
   letter-spacing: 1px;
   color: var(--pureWhite);
+  text-shadow: 2px 2px 5px #000000;
 }
 
 h1 {
@@ -57,45 +60,69 @@ h2 {
 }
 h3 {
   font-size: var(--h3DesktopSize);
+  text-shadow: 2px 2px 10px #000000;
 }
 h4 {
   font-size: var(--h4DesktopSize);
 }
 h5 {
   font-size: var(--h5DesktopSize);
+  font-family: "Quicksand", sans-serif;
 }
 h6 {
   font-size: var(--h6DesktopSize);
 }
 p {
   font-size: var(--pDesktopSize);
+  line-height: var(--lh);
 }
 a {
   font-size: var(--linkDesktopSize);
+  text-decoration: none;
 }
 i {
   font-size: var(--iconDesktopSize);
 }
 
-
-.vertical{
-  writing-mode:tb-rl;
-  -webkit-transform:rotate(90deg);
-  -moz-transform:rotate(90deg);
+.vertical {
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
-  -ms-transform:rotate(90deg);
+  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  white-space:nowrap;
-  display:block;
-  bottom:0;
-  width:20px;
-  height:20px;
+  white-space: nowrap;
+  display: block;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
 }
 
 .truncate {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.truncate__height {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blend-Mode {
+  mix-blend-mode: difference;
+  transition: 500ms;
+}
+.blend-Mode:hover {
+  background-color: var(--transparentLowGray);
+  transition: 500ms;
+  color: rgb(0, 0, 0);
+  mix-blend-mode: unset;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1.5rem;
 }
 
 @media (max-width: 1000px) {

@@ -4,10 +4,7 @@ const initialState = {
 
 export const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "displayMovies/app":
-      state.selectedMedia = action.payload;
-      return state;
-    case "displayShows/app":
+    case "toggleMedia/app":
       state.selectedMedia = action.payload;
       return state;
     default:

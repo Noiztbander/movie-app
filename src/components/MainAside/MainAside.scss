@@ -1,11 +1,12 @@
 .sideMenu__main--container {
   position: absolute;
   left: 2vw;
-  top: 25vh;
+  top: 20vh;
   transform: rotate(180deg);
   writing-mode: vertical-lr;
-  height: 50vh;
+  height: 67vh;
   width: 50px;
+  z-index: 200;
 }
 .sideMenu__main--container > ul {
   list-style: none;

@@ -7,18 +7,30 @@ import "./MainAside.scss";
 function MainAside() {
   const movieInfo = useSelector((state) => state.moviesReducer);
   const dispatch = useDispatch();
+
   function handleActiveLink(event) {
     const asideNav = document.querySelectorAll(
       "nav.sideMenu__main--container > ul > li > h4",
     );
     asideNav.forEach((link) => link.classList.remove("activeLink"));
+    const asideLink = document.querySelectorAll(
+      "nav.sideMenu__main--container > ul > li > a > h4",
+    );
+    asideLink.forEach((link) => link.classList.remove("activeLink"));
     const selectedLink = document.getElementById(event.target.id);
     selectedLink.classList.add("activeLink");
   }
 
+  function deleteBorderOnImages() {
+    const imagesCarousel = document.querySelectorAll(
+      ".imagesCarousel__container > ul > li > div >img",
+    );
+    imagesCarousel.forEach((image) => image.classList.remove("borderImage"));
+  }
+
   function displayAllMovies() {
     dispatch({
-      type: "displayMovies/app",
+      type: "toggleMedia/app",
       payload: "movies",
     });
     dispatch({
@@ -28,7 +40,7 @@ function MainAside() {
   }
   function displayAllShows() {
     dispatch({
-      type: "displayShows/app",
+      type: "toggleMedia/app",
       payload: "shows",
     });
     dispatch({
@@ -52,6 +64,7 @@ function MainAside() {
           onClick={(event) => {
             handleActiveLink(event);
             displayAllMovies();
+            deleteBorderOnImages();
           }}
         >
           <h4 id="movies__link" className="activeLink">
@@ -62,6 +75,7 @@ function MainAside() {
           onClick={(event) => {
             handleActiveLink(event);
             displayAllShows();
+            deleteBorderOnImages();
           }}
         >
           <h4 id="shows__link">TV Shows</h4>
@@ -77,6 +91,7 @@ function MainAside() {
         >
           <h4 id="list_link">list</h4>
         </li>
+
         <li
           onClick={(event) => {
             handleActiveLink(event);

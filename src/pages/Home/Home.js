@@ -52,30 +52,30 @@ function Home() {
               {selectedInfo?.position_number} from
               {movieInfo.movies.results?.length}
             </h4>
-            <h1>{selectedInfo?.title || selectedInfo?.original_name}</h1>
+            <h1>{selectedInfo?.title || selectedInfo?.name}</h1>
             <h3>
               {selectedInfo?.release_date || selectedInfo?.first_air_date}
             </h3>
-            <h5>{selectedInfo?.overview}</h5>
+            {selectedInfo?.overview === "" ? (
+              <h5 className="text-danger">No description</h5>
+            ) : (
+              <h5 className="truncate__height" style={{ maxHeight: "20vh" }}>
+                {selectedInfo?.overview}
+              </h5>
+            )}
+
             <div className="d-flex justify-content-between align-items-center w-100 gap-3">
               <div className="d-flex flex-column justify-content-start aling-items-center gap-3">
-                <h3>Popularity</h3>
-                <h5>{selectedInfo?.popularity}</h5>
-              </div>
-              <div className="d-flex flex-column justify-content-start aling-items-center gap-3">
-                <h3>vote count</h3>
-                <h5>{selectedInfo?.vote_count}</h5>
-              </div>
-              <div className="d-flex flex-column justify-content-start aling-items-center gap-3">
-                <h3>votes</h3>
+                <h3>vote average</h3>
                 <h5>{selectedInfo?.vote_average}</h5>
               </div>
             </div>
+
             <LoadingButton
               disabled={isLoading}
               isSubmmiting={isLoading}
               sendingText="Loading..."
-              idleText="More Info"
+              idleText="MORE INFO"
               handleClick={
                 appInfo.selectedMedia === "movies"
                   ? () => {
@@ -85,7 +85,7 @@ function Home() {
                       getTvShowSelected(selectedInfo?.id);
                     }
               }
-              className="btn btn-secondary"
+              className="loadingButtom"
             />
           </div>
 
@@ -100,9 +100,10 @@ function Home() {
             <ImagesCarousel mediaToRender={movieInfo.tvShows?.results} />
           )}
         </section>
-        <OffCanvasMediaList />
       </div>
-      <MainBackground red="1.9" blue="0" green="2" />
+      <OffCanvasMediaList />
+      <div className="blur__images"></div>
+      <MainBackground red="0.2" blue="0.1" green="0.2" />
     </section>
   );
 }

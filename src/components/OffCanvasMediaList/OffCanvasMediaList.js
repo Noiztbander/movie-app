@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { DETAIL_URL } from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
@@ -108,6 +108,11 @@ export default function OffCanvasMediaList() {
 
 function ListItem({ media, index, handleClick = () => {} }) {
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    return setIsLoading(false);
+  }, []);
+
   return (
     <div
       onClick={() => {
