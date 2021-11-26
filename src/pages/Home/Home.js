@@ -26,7 +26,7 @@ function Home() {
     getMovieById(id).then((res) => {
       dispatch({
         type: "update/detailsPage",
-        payload: res,
+        payload: { loaded: true, ...res },
       });
       navigate(DETAIL_URL + "/" + id);
     });
@@ -37,7 +37,7 @@ function Home() {
     getTvShowById(id).then((res) => {
       dispatch({
         type: "update/detailsPage",
-        payload: res,
+        payload: { loaded: true, ...res },
       });
       navigate(DETAIL_URL + "/" + id);
     });
@@ -87,10 +87,6 @@ function Home() {
               }
               className="loadingButtom"
             />
-          </div>
-
-          <div className="h-100 pt-5">
-            {/* <h1>01 ---------------------- 02 03 04 05</h1> */}
           </div>
         </section>
         <section className="imageSlider__section">

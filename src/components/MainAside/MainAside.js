@@ -67,9 +67,7 @@ function MainAside() {
             deleteBorderOnImages();
           }}
         >
-          <h4 id="movies__link" className="activeLink">
-            Movies
-          </h4>
+          <h4 id="movies__link">Movies</h4>
         </li>
         <li
           onClick={(event) => {

@@ -23,12 +23,13 @@
   align-items: end;
   justify-content: center;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 26vh;
+  grid-template-rows: 1fr;
   width: 50vw;
   height: 100%;
   padding-left: 6vw;
   padding-right: 4vw;
   z-index: 100;
+  padding-bottom: 24vh;
 }
 
 .info__section {
@@ -68,7 +69,7 @@
   mix-blend-mode: difference;
   min-width: 170px;
   width: 10vw;
-  text-align: start;
+  text-align: center;
   padding-left: 0px;
   color: rgb(95, 95, 95);
   transition: all 500ms;

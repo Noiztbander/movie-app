@@ -11,6 +11,12 @@
   overflow-y: hidden !important;
 }
 
+.btn__close {
+  position: absolute;
+  left: 2vw;
+  top: 4vh;
+}
+
 .offCanvasMediaList__main--container {
   background-color: rgba(15, 15, 15, 0.603);
   min-width: 40vw;
@@ -29,7 +35,7 @@
 .offCanvasMediaList__body::-webkit-scrollbar-thumb {
   width: 7px;
   border-radius: 10px;
-  background-color: var(--calmGreen);
+  background-color: var(--pureBlack);
 }
 
 .offCanvasMediaList__item {

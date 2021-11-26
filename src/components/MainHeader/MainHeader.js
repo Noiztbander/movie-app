@@ -25,7 +25,7 @@ function MainHeader() {
           style={{ width: "350px" }}
           className="d-flex gap-4 justify-content-center align-items-center"
         >
-          <i className="fas fa-chevron-down text-dark"></i>
+          <i className="fas fa-chevron-down text-white"></i>
           <div className="profilePicture__container">
             <img
               src="https://res.cloudinary.com/partycle/image/upload/v1634826606/users/Bg778POM2maxqDbLpNw35RMo8IM2/profile/Bg778POM2maxqDbLpNw35RMo8IM2.jpg"
@@ -33,7 +33,7 @@ function MainHeader() {
             />
           </div>
           <h5 className="textPlaylistHeader">Erick Noiztbander</h5>
-          <i className="fas fa-search text-dark"></i>
+          <i className="fas fa-search text-white"></i>
         </div>
       </div>
     </header>

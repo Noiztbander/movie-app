@@ -19,7 +19,7 @@ export default function OffCanvasMediaList() {
     getMovieById(id).then((res) => {
       dispatch({
         type: "update/detailsPage",
-        payload: res,
+        payload: { loaded: true, ...res },
       });
       navigate(DETAIL_URL + "/" + id);
     });
@@ -30,7 +30,7 @@ export default function OffCanvasMediaList() {
     getTvShowById(id).then((res) => {
       dispatch({
         type: "update/detailsPage",
-        payload: res,
+        payload: { loaded: true, ...res },
       });
       navigate(DETAIL_URL + "/" + id);
     });
@@ -71,6 +71,14 @@ export default function OffCanvasMediaList() {
           >
             Tv Shows
           </h3>
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm btn__close d-flex"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            <i className="fas fa-times"></i>
+          </button>
         </div>
       </div>
       <div className="offcanvas-body">
@@ -110,7 +118,9 @@ function ListItem({ media, index, handleClick = () => {} }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    return setIsLoading(false);
+    return () => {
+      setIsLoading(false);
+    };
   }, []);
 
   return (
@@ -120,7 +130,7 @@ function ListItem({ media, index, handleClick = () => {} }) {
         handleClick(media.id);
         setTimeout(() => {
           setIsLoading(false);
-        }, 2000);
+        }, 1000);
       }}
       key={"listItem-" + index}
       className="offCanvasMediaList__item d-flex w-100 justify-content-between align-items-center px-4"
@@ -140,7 +150,7 @@ function ListItem({ media, index, handleClick = () => {} }) {
           )}
         </div>
 
-        <h5>Vote average: {media.vote_average}</h5>
+        <p>Vote average: {media.vote_average}</p>
       </div>
       <div className="picture__miniature">
         {media.poster_path === null ? (
