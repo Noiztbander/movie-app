@@ -37,7 +37,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path={HOME_URL} exact element={<Home />} />
-        <Route path={DETAIL_URL} exact element={<DetailsPage />} />
+        <Route path={DETAIL_URL + "/:id"} exact element={<DetailsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

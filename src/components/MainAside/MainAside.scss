@@ -17,7 +17,10 @@
   margin-bottom: 0;
   gap: 3%;
 }
+.sideMenu__main--container > ul > li {
+  cursor: pointer;
+}
 
-.activeLink{
+.activeLink {
   border-left: 2px solid rgb(255, 255, 255);
 }

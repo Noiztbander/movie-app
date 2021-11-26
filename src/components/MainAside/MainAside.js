@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { HOME_URL } from "../../constants/routes";
 import "./MainAside.scss";
 
 function MainAside() {
@@ -43,8 +45,9 @@ function MainAside() {
             handleActiveLink(event);
           }}
         >
-          <h4 id="home__link">Home</h4>
+          <h4 id="about__link">About</h4>
         </li>
+
         <li
           onClick={(event) => {
             handleActiveLink(event);
@@ -64,11 +67,24 @@ function MainAside() {
           <h4 id="shows__link">TV Shows</h4>
         </li>
         <li
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offCanvasMediaList"
+          aria-controls="offCanvasMediaList"
           onClick={(event) => {
             handleActiveLink(event);
           }}
         >
-          <h4 id="about__link">About</h4>
+          <h4 id="list_link">list</h4>
+        </li>
+        <li
+          onClick={(event) => {
+            handleActiveLink(event);
+          }}
+        >
+          <Link to={HOME_URL}>
+            <h4 id="home__link">Home</h4>
+          </Link>
         </li>
       </ul>
     </nav>

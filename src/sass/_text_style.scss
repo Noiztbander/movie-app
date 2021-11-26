@@ -91,6 +91,13 @@ i {
   width:20px;
   height:20px;
 }
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (max-width: 1000px) {
   h1 {
     font-size: var(--h1PhoneSize);

@@ -1,10 +1,7 @@
-const initialState = {
-  movieDetails: {},
-};
-
-export const detailsReducer = (state = initialState, action) => {
+export const detailsReducer = (state = {}, action) => {
   switch (action.type) {
-    case "getDetails/detailsPage":
+    case "update/detailsPage":
+      state = action.payload;
       return { ...state };
     default:
       return state;
