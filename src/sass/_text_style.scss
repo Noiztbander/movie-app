@@ -36,19 +36,14 @@ h5,
 h6 {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  // font-family: "Saira", sans-serif;
-  // font-family: 'Comfortaa', cursive;
-  // font-family: "Quicksand", sans-serif;
   text-transform: none;
   letter-spacing: 1px;
   color: var(--pureWhite);
-  // text-shadow: 1px 1px 20px #000000;
 }
 
 p {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  // font-family: "Quicksand", sans-serif;
   font-family: "Comfortaa", cursive;
   text-transform: none;
   letter-spacing: 1px;
@@ -135,7 +130,7 @@ i {
 .blend-Mode:hover {
   background-color: var(--transparentLowGray);
   transition: 500ms;
-  color: rgb(0, 0, 0);
+  color: var(--lightBlue);
   mix-blend-mode: unset;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(10px);
@@ -143,6 +138,16 @@ i {
 }
 
 @media (max-width: 1000px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--pureBlack);
+    text-shadow: unset;
+  }
+
   h1 {
     font-size: var(--h1PhoneSize);
   }
@@ -163,6 +168,8 @@ i {
   }
   p {
     font-size: var(--pPhoneSize);
+    color: var(--pureBlack);
+    text-shadow: unset;
   }
   a {
     font-size: var(--linkPhoneSize);

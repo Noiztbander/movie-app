@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import ImagesCarousel from "../../components/ImagesCarousel/ImagesCarousel";
 import MainBackground from "../../components/MainBackground/MainBackground";
 import OffCanvasMediaList from "../../components/OffCanvasMediaList/OffCanvasMediaList";
-import LoadingButton from "../../components/LoadingButton/LoadingButton";
-import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
 import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
+import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
+import LoadingButton from "../../components/LoadingButton/LoadingButton";
 
 import "./Home.scss";
 
@@ -26,7 +26,7 @@ function Home() {
           <div className="d-flex flex-column gap-4">
             <h4>
               {selectedInfo?.position_number} from
-              {" " + movieInfo.movies.results?.length}
+              {movieInfo.movies.results?.length}
             </h4>
             <h1>{selectedInfo?.title || selectedInfo?.name}</h1>
             <h3>

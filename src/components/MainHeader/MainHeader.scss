@@ -3,18 +3,21 @@
   top: 0;
   height: 200px;
   width: 100%;
-  z-index: 200;
+  z-index: 400;
 }
 
 .logo__container {
   height: 100%;
   transform: translate(1.5vw, 4vh);
   width: 50vw;
+  mix-blend-mode: difference;
+  background-blend-mode: darken, luminosity;
 }
 
-.logo__container img {
-  height: 100%;
-  object-fit: cover;
+.logo__container h3 {
+  mix-blend-mode: difference;
+  transition: 500ms;
+  color: rgb(255, 255, 255);
 }
 
 .profilePicture__container {
@@ -41,4 +44,18 @@
   text-shadow: unset;
   font-weight: bold;
   // text-shadow: 2px 2px 10px #505050;
+}
+
+@media (max-width: 1000px) {
+  .logo__container h3 {
+    color: rgb(0, 0, 0);
+  }
+
+  .logo__container {
+    height: 100%;
+    transform: translate(30px, 4vh);
+    width: 50vw;
+    mix-blend-mode: difference;
+    background-blend-mode: darken, luminosity;
+  }
 }

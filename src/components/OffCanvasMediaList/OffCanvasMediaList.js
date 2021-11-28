@@ -93,6 +93,7 @@ export default function OffCanvasMediaList() {
 
 function ListItem({ media, index, handleClick = () => {} }) {
   const [isLoading, setIsLoading] = useState(false);
+  const queryInfo = useSelector((state) => state.queryReducer);
 
   useEffect(() => {
     return () => {
@@ -114,7 +115,12 @@ function ListItem({ media, index, handleClick = () => {} }) {
     >
       <div className="d-flex flex-column aling-items-center justify-content-between gap-2">
         <div className="d-flex gap-2">
-          <h5 className="truncate" style={{ maxWidth: "25vw" }}>
+          <h5
+            className="truncate"
+            style={
+              queryInfo.desktop ? { maxWidth: "25vw" } : { maxWidth: "60vw" }
+            }
+          >
             {media.title || media.original_name}
           </h5>
           {isLoading && (

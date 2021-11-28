@@ -10,6 +10,7 @@ import "./DetailsPage.scss";
 
 function DetailsPage() {
   const detailsInfo = useSelector((state) => state.detailsReducer);
+  const queryInfo = useSelector((state) => state.queryReducer);
 
   // hooks
   const { getMovieSelected } = useFetchSelectedMovie();
@@ -22,12 +23,9 @@ function DetailsPage() {
           <h1 className="text-dark">Nothing selected!</h1>
         </div>
       ) : (
-        <div className="home__main--section">
+        <div className="detailsPage__main--section">
           <section className="info__detailsPage--section">
-            <div
-              className="d-flex flex-column gap-4"
-              style={{ paddingRight: "5vw" }}
-            >
+            <div className="d-flex flex-column gap-4 info__detailsPage--section-text">
               <h1>{detailsInfo?.title || detailsInfo?.name}</h1>
               <h3>
                 {detailsInfo?.release_date || detailsInfo?.first_air_date}
@@ -68,10 +66,9 @@ function DetailsPage() {
                   <h5 key={company.id}>{company.name}</h5>
                 ))}
               </div>
-              {detailsInfo?.budget && (
+              {!detailsInfo?.budget === "" && (
                 <div className="d-flex justify-content-start align-items-center w-100 gap-3">
                   <h4>Budget:</h4>
-
                   <h5>{detailsInfo?.budget}$</h5>
                 </div>
               )}
@@ -86,9 +83,37 @@ function DetailsPage() {
                   <h5>{detailsInfo?.homepage}</h5>
                 </a>
               </div>
+              {!queryInfo.desktop && (
+                <div
+                  className="d-flex justify-content-center align-items-center"
+                  style={{
+                    maxHeight: "40vh",
+                    maxWidth: "30vw",
+                    overflow: "hidden",
+                    objectFit: "cover",
+                  }}
+                >
+                  {detailsInfo?.poster_path === null ? (
+                    <img
+                      style={{ width: "100%", borderRadius: "5px" }}
+                      alt="film-pic"
+                      src="https://res.cloudinary.com/partycle/image/upload/v1634344600/defaultThumnailPlaylist_rwsh0u.jpg"
+                    />
+                  ) : (
+                    <img
+                      alt="film-pic"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                      src={
+                        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" +
+                        detailsInfo?.poster_path
+                      }
+                    />
+                  )}
+                </div>
+              )}
             </div>
             <div className="relatedMovies pt-4">
-              <h2 className="pb-4">
+              <h2 className="pb-4 titleRelated">
                 {detailsInfo?.mediaType === "movie"
                   ? "Related movies"
                   : "Related Tv Shows"}
