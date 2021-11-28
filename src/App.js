@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter , Routes, Route } from "react-router-dom";
 import { HOME_URL, DETAIL_URL } from "./constants/routes";
 import Home from "./pages/Home";
 import DetailsPage from "./pages/DetailsPage";
@@ -79,13 +79,13 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path={HOME_URL} exact element={<Home />} />
         <Route path={DETAIL_URL + "/:id"} exact element={<DetailsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
