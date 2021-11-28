@@ -5,12 +5,14 @@ import { detailsReducer } from "./reducers/detailsReducer";
 import { moviesReducer } from "./reducers/moviesReducer";
 import { selectedReducer } from "./reducers/selectedReducer";
 import { appReducer } from "./reducers/appReducer";
+import { queryReducer } from "./reducers/queryReducer";
 
 const reducers = combineReducers({
   detailsReducer: detailsReducer,
   moviesReducer: moviesReducer,
   selectedReducer: selectedReducer,
   appReducer: appReducer,
+  queryReducer: queryReducer,
 });
 
 export const reduxStore = createStore(

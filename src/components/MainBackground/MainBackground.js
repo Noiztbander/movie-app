@@ -49,7 +49,7 @@ function MainBackground( {red = "0.40", green = "0.60", blue = "0.15"}) {
     	uniform vec3 iResolution;
     	uniform float iTime;
 
-			const mat2 m = mat2( 0.80,  0.60, -0.60,  0.80 );
+			const mat2 m = mat2( 0.10,  0.60, -0.90,  0.80 );
 
 			float noise( in vec2 p )
 			{
@@ -88,7 +88,7 @@ function MainBackground( {red = "0.40", green = "0.60", blue = "0.15"}) {
 
 			float func( vec2 q, out vec4 ron )
 			{
-					q += 0.03*sin( vec2(0.27,0.23)*iTime + length(q)*vec2(4.1,4.3));
+					q += 0.08*sin( vec2(0.27,0.23)*iTime + length(q)*vec2(4.1,4.3));
 				vec2 o = fbm4_2( 0.9*q );
 					o += 0.04*sin( vec2(0.12,0.14)*iTime + length(o));
 					vec2 n = fbm6_2( 3.0*o );

@@ -57,6 +57,18 @@
   align-items: center;
   list-style: none;
   gap: 1vw;
+  opacity: 100%;
+  animation-name: buttonsIn;
+  animation-duration: 10s;
+}
+
+@keyframes buttonsIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 
 .carrousel__left--arrow {
@@ -78,6 +90,32 @@
 }
 
 .borderImage {
-  border: solid rgb(0, 0, 0) 3px;
+  border: solid var(--lightBlue) 3px;
   transition: 200ms;
+}
+
+@media (max-width: 1000px) {
+  .sliderDot__list--class {
+    display: none;
+  }
+  .imageContainer {
+    width: 50vw !important;
+  }
+  .carrousel__item--movie {
+    width: 50vw !important;
+  }
+  .imagesCarousel__container > ul {
+    gap: 0vw;
+    padding-right: 100vw;
+    padding-left: 30px;
+  }
+
+  .imageContainer img {
+    border-radius: 0px;
+  }
+  .imagesCarousel__container {
+    position: relative;
+    min-height: unset;
+    max-width: unset;
+  }
 }

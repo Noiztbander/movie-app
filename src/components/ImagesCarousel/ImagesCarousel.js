@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./ImagesCarousel.scss";
 
 function ImagesCarousel({ mediaToRender }) {
+  const queryInfo = useSelector((state) => state.queryReducer);
+
   useEffect(() => {
     setTimeout(() => {
       const buttoms = document.querySelectorAll(
@@ -15,8 +17,9 @@ function ImagesCarousel({ mediaToRender }) {
         buttom.classList.add("blend-Mode");
         buttom.innerHTML = index + 1;
       });
-    }, 500);
+    }, 1000);
   }, []);
+
   const dispatch = useDispatch();
 
   function displaySelectedFilm(event, media, index) {
@@ -28,7 +31,6 @@ function ImagesCarousel({ mediaToRender }) {
   }
 
   function handleActiveImage(event) {
-    console.log(event.target);
     const imagesCarousel = document.querySelectorAll(
       ".imagesCarousel__container > ul > li > div >img",
     );
@@ -69,20 +71,27 @@ function ImagesCarousel({ mediaToRender }) {
               items: 2.9,
               partialVisibilityGutter: 40,
             },
-            // tablet: {
-            //   breakpoint: {
-            //     max: 1000,
-            //     min: 0,
-            //   },
-            //   items: 4,
-            //   partialVisibilityGutter: 0,
-            // },
+            tablet: {
+              breakpoint: {
+                max: 1000,
+                min: 0,
+              },
+              items: 2,
+              partialVisibilityGutter: 40,
+            },
           }}
         >
           {mediaToRender.map((media, index) => (
             <div
-              onDoubleClick={(event) =>
-                displaySelectedFilm(event, media, index + 1)
+              onClick={
+                !queryInfo.desktop
+                  ? (event) => displaySelectedFilm(event, media, index + 1)
+                  : () => {}
+              }
+              onDoubleClick={
+                queryInfo.desktop
+                  ? (event) => displaySelectedFilm(event, media, index + 1)
+                  : () => {}
               }
               key={index}
               className="imageContainer"

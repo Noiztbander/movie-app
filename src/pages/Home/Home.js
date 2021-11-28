@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import MainLayout from "../../HighOrderComponents/MainLayout";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ImagesCarousel from "../../components/ImagesCarousel/ImagesCarousel";
 import MainBackground from "../../components/MainBackground/MainBackground";
 import OffCanvasMediaList from "../../components/OffCanvasMediaList/OffCanvasMediaList";
-import { useNavigate } from "react-router-dom";
-import { DETAIL_URL } from "../../constants/routes";
-import { getTvShowById, getMovieById } from "../../api/moviesCalls.js";
+import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
+import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
 
 import "./Home.scss";
@@ -16,32 +15,9 @@ function Home() {
   const appInfo = useSelector((state) => state.appReducer);
   const selectedInfo = useSelector((state) => state.selectedReducer);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
-
-  function getMovieSelected(id) {
-    setIsLoading(true);
-    getMovieById(id).then((res) => {
-      dispatch({
-        type: "update/detailsPage",
-        payload: { loaded: true, ...res },
-      });
-      navigate(DETAIL_URL + "/" + id);
-    });
-  }
-
-  function getTvShowSelected(id) {
-    setIsLoading(true);
-    getTvShowById(id).then((res) => {
-      dispatch({
-        type: "update/detailsPage",
-        payload: { loaded: true, ...res },
-      });
-      navigate(DETAIL_URL + "/" + id);
-    });
-  }
+  // hooks
+  const { loadingMovies, getMovieSelected } = useFetchSelectedMovie();
+  const { loadingTvShows, getTvShowSelected } = useFetchSelectedtvShow();
 
   return (
     <section className="MainBackground">
@@ -72,8 +48,8 @@ function Home() {
             </div>
 
             <LoadingButton
-              disabled={isLoading}
-              isSubmmiting={isLoading}
+              disabled={loadingMovies || loadingTvShows}
+              isSubmmiting={loadingMovies || loadingTvShows}
               sendingText="Loading..."
               idleText="MORE INFO"
               handleClick={
