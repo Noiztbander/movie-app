@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { HOME_URL } from "../../constants/routes";
 import { useSelector } from "react-redux";
 import PhoneBurger from "../PhoneBurger/PhoneBurger";
+import profile_picture from "../../assets/profile_picture.jpg";
 
 import "./MainHeader.scss";
 
@@ -21,20 +22,20 @@ function MainHeader() {
           </Link>
         </div>
         {queryInfo.desktop ? (
-          <div
+          <a
+            href="https://github.com/Noiztbander/movie-app"
+            target="_blank"
+            rel="noreferrer"
             style={{ width: "350px" }}
             className="d-flex gap-4 justify-content-center align-items-center"
           >
             <i className="fas fa-chevron-down text-black"></i>
             <div className="profilePicture__container">
-              <img
-                src="https://res.cloudinary.com/partycle/image/upload/v1634826606/users/Bg778POM2maxqDbLpNw35RMo8IM2/profile/Bg778POM2maxqDbLpNw35RMo8IM2.jpg"
-                alt="profile-img"
-              />
+              <img src={profile_picture} alt="profile-img" />
             </div>
             <h5 className="textPlaylistHeader">Erick Noiztbander</h5>
             <i className="fas fa-search text-black"></i>
-          </div>
+          </a>
         ) : (
           <PhoneBurger />
         )}
