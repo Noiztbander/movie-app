@@ -25,19 +25,20 @@
   border-radius: 50px;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
-  outline: solid 1px rgb(255, 255, 255);
+  outline: solid 2px rgb(0, 0, 0);
 }
 
 .profilePicture__container img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 10px #000000;
+  color: rgb(0, 0, 0);
+  // text-shadow: 2px 2px 10px #000000;
 }
 
 .textPlaylistHeader {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-shadow: unset;
-  text-shadow: 2px 2px 10px #505050;
+  font-weight: bold;
+  // text-shadow: 2px 2px 10px #505050;
 }

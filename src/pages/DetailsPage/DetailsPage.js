@@ -3,11 +3,17 @@ import MainLayout from "../../HighOrderComponents/MainLayout";
 import { useSelector } from "react-redux";
 import MainBackground from "../../components/MainBackground/MainBackground";
 import OffCanvasMediaList from "../../components/OffCanvasMediaList/OffCanvasMediaList";
+import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
+import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
 
 import "./DetailsPage.scss";
 
 function DetailsPage() {
   const detailsInfo = useSelector((state) => state.detailsReducer);
+
+  // hooks
+  const { getMovieSelected } = useFetchSelectedMovie();
+  const { getTvShowSelected } = useFetchSelectedtvShow();
 
   return (
     <section className="MainBackground">
@@ -18,7 +24,10 @@ function DetailsPage() {
       ) : (
         <div className="home__main--section">
           <section className="info__detailsPage--section">
-            <div className="d-flex flex-column gap-4">
+            <div
+              className="d-flex flex-column gap-4"
+              style={{ paddingRight: "5vw" }}
+            >
               <h1>{detailsInfo?.title || detailsInfo?.name}</h1>
               <h3>
                 {detailsInfo?.release_date || detailsInfo?.first_air_date}
@@ -59,10 +68,14 @@ function DetailsPage() {
                   <h5 key={company.id}>{company.name}</h5>
                 ))}
               </div>
-              <div className="d-flex justify-content-start align-items-center w-100 gap-3">
-                <h4>Budget:</h4>
-                <h5>{detailsInfo?.budget}$</h5>
-              </div>
+              {detailsInfo?.budget && (
+                <div className="d-flex justify-content-start align-items-center w-100 gap-3">
+                  <h4>Budget:</h4>
+
+                  <h5>{detailsInfo?.budget}$</h5>
+                </div>
+              )}
+
               <div className="d-flex justify-content-start align-items-center w-100 gap-3">
                 <h4>Official Home Page:</h4>
                 <a
@@ -73,6 +86,39 @@ function DetailsPage() {
                   <h5>{detailsInfo?.homepage}</h5>
                 </a>
               </div>
+            </div>
+            <div className="relatedMovies pt-4">
+              <h2 className="pb-4">
+                {detailsInfo?.mediaType === "movie"
+                  ? "Related movies"
+                  : "Related Tv Shows"}
+              </h2>
+              <ul>
+                {detailsInfo?.related.map((related, index) => (
+                  <li key={"relatedMedia" + related.id + index}>
+                    <div
+                      onClick={
+                        detailsInfo?.mediaType === "movie"
+                          ? () => {
+                              getMovieSelected(related.id);
+                            }
+                          : () => {
+                              getTvShowSelected(related.id);
+                            }
+                      }
+                      className="relatedMovies__images--container"
+                    >
+                      <img
+                        alt=""
+                        src={
+                          "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" +
+                          related?.poster_path
+                        }
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
           <section className="image__detailsPage--container">

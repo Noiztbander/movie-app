@@ -13,7 +13,6 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     getPopularMovies().then((response) => {
-      console.log(response);
       dispatch({
         type: "getAllMovies/movies",
         payload: response,
@@ -24,7 +23,6 @@ function App() {
       });
     });
     getPopularTvShows().then((response) => {
-      console.log(response);
       dispatch({
         type: "getAllTvShows/movies",
         payload: response,

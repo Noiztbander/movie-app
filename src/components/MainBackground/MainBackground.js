@@ -49,7 +49,7 @@ function MainBackground( {red = "0.40", green = "0.60", blue = "0.15"}) {
     	uniform vec3 iResolution;
     	uniform float iTime;
 
-			const mat2 m = mat2( 0.80,  0.60, -0.60,  0.80 );
+			const mat2 m = mat2( 0.10,  0.60, -0.90,  0.80 );
 
 			float noise( in vec2 p )
 			{

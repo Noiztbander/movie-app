@@ -1,40 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { DETAIL_URL } from "../../constants/routes";
-import { useNavigate } from "react-router-dom";
-import { getTvShowById, getMovieById } from "../../api/moviesCalls.js";
+import { useSelector } from "react-redux";
+import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
+import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
 
 import "./OffCanvasMediaList.scss";
 
 export default function OffCanvasMediaList() {
   const movieInfo = useSelector((state) => state.moviesReducer);
   const [showMovies, setShowMovies] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
 
-  let navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  function getMovieSelected(id) {
-    setIsLoading(true);
-    getMovieById(id).then((res) => {
-      dispatch({
-        type: "update/detailsPage",
-        payload: { loaded: true, ...res },
-      });
-      navigate(DETAIL_URL + "/" + id);
-    });
-  }
-
-  function getTvShowSelected(id) {
-    setIsLoading(true);
-    getTvShowById(id).then((res) => {
-      dispatch({
-        type: "update/detailsPage",
-        payload: { loaded: true, ...res },
-      });
-      navigate(DETAIL_URL + "/" + id);
-    });
-  }
+  // hooks
+  const { loadingMovies, getMovieSelected } = useFetchSelectedMovie();
+  const { loadingTvShows, getTvShowSelected } = useFetchSelectedtvShow();
 
   return (
     <div
@@ -88,7 +65,7 @@ export default function OffCanvasMediaList() {
               {movieInfo.movies.results?.map((media, index) => (
                 <ListItem
                   key={"listMovieItem-" + media.id + index}
-                  isLoading={isLoading}
+                  isLoading={loadingMovies}
                   media={media}
                   index={index}
                   handleClick={() => getMovieSelected(media.id)}
@@ -100,7 +77,7 @@ export default function OffCanvasMediaList() {
               {movieInfo.tvShows.results?.map((media, index) => (
                 <ListItem
                   key={"listTvShowItem-" + media.id + index}
-                  isLoading={isLoading}
+                  isLoading={loadingTvShows}
                   media={media}
                   index={index}
                   handleClick={() => getTvShowSelected(media.id)}

@@ -12,9 +12,6 @@ function MainHeader() {
         style={{ width: "100%", height: "100px" }}
         className="d-flex justify-content-between align-items-center"
       >
-        {/* <div className="logo__container">
-          <img alt="logo_image" src={logo} />
-        </div> */}
         <div className="logo__container">
           <Link to={HOME_URL}>
             <h3>MOVIE APP</h3>
@@ -25,7 +22,7 @@ function MainHeader() {
           style={{ width: "350px" }}
           className="d-flex gap-4 justify-content-center align-items-center"
         >
-          <i className="fas fa-chevron-down text-white"></i>
+          <i className="fas fa-chevron-down text-dark"></i>
           <div className="profilePicture__container">
             <img
               src="https://res.cloudinary.com/partycle/image/upload/v1634826606/users/Bg778POM2maxqDbLpNw35RMo8IM2/profile/Bg778POM2maxqDbLpNw35RMo8IM2.jpg"
@@ -33,7 +30,7 @@ function MainHeader() {
             />
           </div>
           <h5 className="textPlaylistHeader">Erick Noiztbander</h5>
-          <i className="fas fa-search text-white"></i>
+          <i className="fas fa-search text-dark"></i>
         </div>
       </div>
     </header>

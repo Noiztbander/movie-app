@@ -28,7 +28,6 @@ function ImagesCarousel({ mediaToRender }) {
   }
 
   function handleActiveImage(event) {
-    console.log(event.target);
     const imagesCarousel = document.querySelectorAll(
       ".imagesCarousel__container > ul > li > div >img",
     );
