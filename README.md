@@ -1,74 +1,107 @@
-# movie-app
+# Movie App
 
-Wep application to view information of your favorites tv shows and films
+- [Movie App](#movie-app)
+  - [Introduction & requirements](#introduction--requirements)
+    - [Installation](#installation)
+    - [Folder structure](#folder-structure)
+  - [Client](#client)
+    - [Deployment](#deployment)
+    - [Future improvements](#future-improvements)
+    - [Main resources](#main-resources)
+    - [Libraries](#libraries)
+  - [Contributor](#contributor)
 
-# Getting Started with Create React App
+## Introduction & requirements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a tech challenge as a part of a **frontend** job
+application process. The main project it's done with React, redux and Three JS
+library
 
-## Available Scripts
+The purpose of this application is to consume
+[The movie db](https://www.themoviedb.org/) V3 and show both movies and tv shows
+in different pages. The Home page renders a carousel where you can toogle
+between the most popular movies and Tv shows.
 
-In the project directory, you can run:
+Each movie/tv show card is a link that redirects the user to a detailed page
+showing more information about the picked one and also with related media.
 
-### `npm start`
+> Check the deployed version of this challenge
+> [here](https://noiztbander-movie-app.herokuapp.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+First, you will need to `clone` or `fork` the repository into your Github
+account. Choose a place in your local machine and paste the next command in your
+terminal:
 
-### `npm test`
+```
+$ git clone https://github.com/Noiztbander/movie-app.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Environment variables**
 
-### `npm run build`
+The **client** .env file needs to contain the API key. This is where the client
+is getting the data from the database.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+REACT_APP_MOVIED_DB_ACCESSTOKEN=YourAccesTokenHere
+REACT_APP_MOVIE_DB_API_KEY=pasteYourApiKeyOverHere
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Folder structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+├── documentation
+├── public
+└── src
+  ├── __test__
+  ├── api // All api requests
+  ├── assets
+  ├── components
+  ├── config // with the configuration of .env
+  ├── constants
+  ├── HighOrderComponents
+  ├── hooks // with reusable code
+  ├── pages
+  ├── redux // the engine of the app
+  ├── sass // global styles
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Client
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The client package consists in a React app template. Its `src` folder contains
+components used in the application. Also it's used ThreeJs library to make the
+background effect.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application is styled with Sass and bootstrap and it is divided into
+separate files in the application.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+In order to deploy both client and server workspace this application has used
+[Heroku](www.heroku.com).
 
-### `npm run build` fails to minify
+### Future improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Authentication.
+- General searchbar.
+- Use localstorage to persist data
+
+### Main resources
+
+- [Bootstrap](https://getbootstrap.com/)
+- [Eslint](https://eslint.org/)
+- [NodeJs](https://nodejs.org/)
+- [Prettier](https://prettier.io/)
+- [React](https://es.reactjs.org/)
+- [SASS](https://sass-lang.com/)
+- [The MovieDb](https://developers.themoviedb.org/3/movies/get-similar-movies)
+
+### Libraries
+
+- [Three JS](https://threejs.org/)
+
+## Contributor
+
+👤 [Erick Noiztbander](https://github.com/Noiztbander)

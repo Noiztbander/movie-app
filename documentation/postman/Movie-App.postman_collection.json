@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "cc4db177-86d7-481d-b9ef-ee6c6622b780",
+		"name": "Movie-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get a Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/108?api_key=6b4c66e024ea821a7d6c2ca0db501f0c",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"108"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "6b4c66e024ea821a7d6c2ca0db501f0c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get popularity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/discover/movie?api_key=6b4c66e024ea821a7d6c2ca0db501f0c&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"discover",
+						"movie"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "6b4c66e024ea821a7d6c2ca0db501f0c"
+						},
+						{
+							"key": "language",
+							"value": "en-US"
+						},
+						{
+							"key": "sort_by",
+							"value": "popularity.desc"
+						},
+						{
+							"key": "include_adult",
+							"value": "false"
+						},
+						{
+							"key": "include_video",
+							"value": "false"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "with_watch_monetization_types",
+							"value": "flatrate"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/92804?api_key=6b4c66e024ea821a7d6c2ca0db501f0c&language=en-US\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"92804"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "6b4c66e024ea821a7d6c2ca0db501f0c"
+						},
+						{
+							"key": "language",
+							"value": "en-US\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mGPdWEEmfzP7VQBQsXrFt1b1ikQ.jpg",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"t",
+						"p",
+						"w600_and_h900_bestv2",
+						"mGPdWEEmfzP7VQBQsXrFt1b1ikQ.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Related Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/580489/similar?api_key=6b4c66e024ea821a7d6c2ca0db501f0c&language=en-US&page=1\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"580489",
+						"similar"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "6b4c66e024ea821a7d6c2ca0db501f0c"
+						},
+						{
+							"key": "language",
+							"value": "en-US"
+						},
+						{
+							"key": "page",
+							"value": "1\n"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
