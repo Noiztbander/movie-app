@@ -1,0 +1,11 @@
+:root {
+  --lightGreen: #d4ecdd;
+  --calmGreen: #345b63;
+  --darkBlue: #112031;
+  --darkGreen: #152d35;
+  --lowGray: #f0f0f0;
+  --transparentLowGray: #f0f0f02a;
+  --pureWhite: #ffffff;
+  --pureBlack: #000000;
+  --lightBlue: rgb(0, 208, 255);
+}

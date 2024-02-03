@@ -9,12 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "18",
+    "react-dom": "18",
     "next": "14.1.0"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint": "8",
+    "eslint-config-next": "14.1.0",
+    "@reduxjs/toolkit": "^1.6.2",
+    "axios": "0.24.0",
+    "dotenv": "10.0.0",
+    "react-redux": "^7.2.6",
+    "redux": "4.1.2",
+    "react-multi-carousel": "^2.6.5",
+    "redux-devtools-extension": "2.13.9",
+    "redux-thunk": "2.4.0",
+    "three": "0.134.0"
   }
 }
