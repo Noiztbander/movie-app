@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as THREE from "three";
 
-import "./MainBackground.scss";
+import "./MainBackground.css";
 
 let scene, camera, renderer, plane, uniforms;
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { HOME_URL } from "../../constants/routes";
-import "./MainAside.scss";
+import { HOME_URL } from "@/routes";
+import "./MainAside.css";
 
 function MainAside() {
   const movieInfo = useSelector((state) => state.moviesReducer);
@@ -95,7 +95,7 @@ function MainAside() {
             handleActiveLink(event);
           }}
         >
-          <Link to={HOME_URL}>
+          <Link href={HOME_URL}>
             <h4 id="home__link">Home</h4>
           </Link>
         </li>

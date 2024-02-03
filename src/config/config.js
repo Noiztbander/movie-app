@@ -3,20 +3,20 @@ const NODE_ENV = "development";
 const appConfig = {
   development: {
     movieDB: {
-      MovieDbApiKey: process.env.REACT_APP_MOVIE_DB_API_KEY,
-      MovieDbAccessToken: process.env.REACT_APP_MOVIED_DB_ACCESSTOKEN,
+      MovieDbApiKey: process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY,
+      MovieDbAccessToken: process.env.NEXT_PUBLIC_MOVIED_DB_ACCESSTOKEN,
     },
     movieApp: {
-      port: process.env.REACT_APP_PORT,
+      port: process.env.NEXT_PUBLIC_PORT,
     },
   },
   production: {
     movieDB: {
-      MovieDbApiKey: process.env.REACT_APP_MOVIE_DB_API_KEY,
-      MovieDbAccessToken: process.env.REACT_APP_MOVIED_DB_ACCESSTOKEN,
+      MovieDbApiKey: process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY,
+      MovieDbAccessToken: process.env.NEXT_PUBLIC_MOVIED_DB_ACCESSTOKEN,
     },
     movieApp: {
-      port: process.env.REACT_APP_PORT,
+      port: process.env.NEXT_PUBLIC_PORT,
     },
   },
 };

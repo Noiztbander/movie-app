@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import { useDispatch, useSelector } from "react-redux";
 
-import "./ImagesCarousel.scss";
+import "./ImagesCarousel.css";
+import Image from "next/image";
 
 function ImagesCarousel({ mediaToRender }) {
   const queryInfo = useSelector((state) => state.queryReducer);
@@ -10,7 +11,7 @@ function ImagesCarousel({ mediaToRender }) {
   useEffect(() => {
     setTimeout(() => {
       const buttoms = document.querySelectorAll(
-        ".sliderDot__list--class > li > button",
+        ".sliderDot__list--class > li > button"
       );
       buttoms.forEach((buttom, index) => {
         buttom.classList.add("btn");
@@ -32,7 +33,7 @@ function ImagesCarousel({ mediaToRender }) {
 
   function handleActiveImage(event) {
     const imagesCarousel = document.querySelectorAll(
-      ".imagesCarousel__container > ul > li > div >img",
+      ".imagesCarousel__container > ul > li > div >img"
     );
     imagesCarousel.forEach((image) => image.classList.remove("borderImage"));
     const selectedImage = event.target;
@@ -79,8 +80,7 @@ function ImagesCarousel({ mediaToRender }) {
               items: 2,
               partialVisibilityGutter: 40,
             },
-          }}
-        >
+          }}>
           {mediaToRender.map((media, index) => (
             <div
               onClick={
@@ -94,15 +94,18 @@ function ImagesCarousel({ mediaToRender }) {
                   : () => {}
               }
               key={index}
-              className="imageContainer"
-            >
+              className="imageContainer">
               {media.poster_path === null ? (
                 <img
+                  height={900}
+                  width={600}
                   alt="film-pic"
-                  src="https://res.cloudinary.com/partycle/image/upload/v1634344600/defaultThumnailPlaylist_rwsh0u.jpg"
+                  href="https://res.cloudinary.com/partycle/image/upload/v1634344600/defaultThumnailPlaylist_rwsh0u.jpg"
                 />
               ) : (
                 <img
+                  height={900}
+                  width={600}
                   alt="film-pic"
                   src={
                     "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" +

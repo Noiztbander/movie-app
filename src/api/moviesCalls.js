@@ -1,5 +1,5 @@
 import { config } from "../config/config";
-import { MOVIEDB_API } from "../constants/routes";
+import { MOVIEDB_API } from "../routes";
 
 export async function getPopularMovies() {
   return fetch(
@@ -11,7 +11,7 @@ export async function getPopularMovies() {
         "content-type": "application/json",
         Authorization: `Bearer ${config.movieDB.MovieDbAccessToken}`,
       },
-    },
+    }
   )
     .then((res) => res.json())
     .catch((err) => {
@@ -29,7 +29,7 @@ export async function getPopularTvShows() {
         "content-type": "application/json",
         Authorization: `Bearer ${config.movieDB.MovieDbAccessToken}`,
       },
-    },
+    }
   )
     .then((res) => res.json())
     .catch((err) => {
@@ -48,13 +48,14 @@ export async function getMovieById(id = "", params = ` &language=en-US`) {
         "content-type": "application/json",
         Authorization: `Bearer ${config.movieDB.MovieDbAccessToken}`,
       },
-    },
+    }
   )
     .then((res) => res.json())
     .catch((err) => {
       console.error(err);
     });
 }
+
 export async function getTvShowById(id = "", params = ` &language=en-US`) {
   return fetch(
     `${MOVIEDB_API}/3/tv/${id}?api_key=${config.movieDB.MovieDbApiKey}` +
@@ -66,7 +67,7 @@ export async function getTvShowById(id = "", params = ` &language=en-US`) {
         "content-type": "application/json",
         Authorization: `Bearer ${config.movieDB.MovieDbAccessToken}`,
       },
-    },
+    }
   )
     .then((res) => res.json())
     .catch((err) => {
@@ -76,7 +77,7 @@ export async function getTvShowById(id = "", params = ` &language=en-US`) {
 
 export async function getRelatedMovies(
   id = "",
-  params = ` &language=en-US&page=1`,
+  params = ` &language=en-US&page=1`
 ) {
   return fetch(
     `${MOVIEDB_API}/3/movie/${id}/similar?api_key=${config.movieDB.MovieDbApiKey}` +
@@ -88,7 +89,7 @@ export async function getRelatedMovies(
         "content-type": "application/json",
         Authorization: `Bearer ${config.movieDB.MovieDbAccessToken}`,
       },
-    },
+    }
   )
     .then((res) => res.json())
     .catch((err) => {
@@ -98,7 +99,7 @@ export async function getRelatedMovies(
 
 export async function getRelatedTvShows(
   id = "",
-  params = ` &language=en-US&page=1`,
+  params = ` &language=en-US&page=1`
 ) {
   return fetch(
     `${MOVIEDB_API}/3/tv/${id}/similar?api_key=${config.movieDB.MovieDbApiKey}` +
@@ -110,7 +111,7 @@ export async function getRelatedTvShows(
         "content-type": "application/json",
         Authorization: `Bearer ${config.movieDB.MovieDbAccessToken}`,
       },
-    },
+    }
   )
     .then((res) => res.json())
     .catch((err) => {

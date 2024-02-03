@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
 import MainHeader from "../components/MainHeader/MainHeader";
 import MainAside from "../components/MainAside/MainAside";
-import "./MainLayout.scss";
+import "./MainLayout.css";
 
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || "Component";
@@ -9,7 +11,7 @@ function getDisplayName(WrappedComponent) {
 
 function MainLayout(WrappedComponent) {
   WrappedComponent.displayName = `MainLayout(${getDisplayName(
-    WrappedComponent,
+    WrappedComponent
   )})`;
 
   function WrapperComponent({ ...props }) {

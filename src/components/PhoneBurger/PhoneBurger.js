@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PhoneBurger.scss";
+import "./PhoneBurger.css";
 
 function PhoneBurger() {
   const [menuOpen, setMenuOpen] = useState(false);

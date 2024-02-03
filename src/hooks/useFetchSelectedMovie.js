@@ -1,13 +1,12 @@
+"use client";
+
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { DETAIL_URL } from "../constants/routes";
 import { getMovieById, getRelatedMovies } from "../api/moviesCalls";
 
-export const useFetchSelectedMovie = ( ) => {
+export const useFetchSelectedMovie = () => {
   const [loadingMovies, setLoadingMovies] = useState(false);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function getMovieSelected(id) {
@@ -23,7 +22,6 @@ export const useFetchSelectedMovie = ( ) => {
             ...res,
           },
         });
-        navigate(DETAIL_URL + "/" + id);
       });
     });
   }

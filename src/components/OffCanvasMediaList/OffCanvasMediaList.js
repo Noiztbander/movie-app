@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
 import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
+import { DETAIL_URL } from "@/routes";
 
-import "./OffCanvasMediaList.scss";
+import "./OffCanvasMediaList.css";
+import Link from "next/link";
 
 export default function OffCanvasMediaList() {
   const movieInfo = useSelector((state) => state.moviesReducer);
@@ -18,8 +20,7 @@ export default function OffCanvasMediaList() {
       className="offcanvas offcanvas-start offCanvasMediaList__main--container"
       tabIndex="-1"
       id="offCanvasMediaList"
-      aria-labelledby="offCanvasMediaListLabel"
-    >
+      aria-labelledby="offCanvasMediaListLabel">
       <div className="pt-4">
         <div className="d-flex justify-content-center gap-3 align-items-end w-100">
           <h3
@@ -31,8 +32,7 @@ export default function OffCanvasMediaList() {
                 ? { borderBottom: "2px solid white", cursor: "pointer" }
                 : { cursor: "pointer" }
             }
-            className="offcanvas-title"
-          >
+            className="offcanvas-title">
             Movies
           </h3>
           <h3
@@ -44,16 +44,14 @@ export default function OffCanvasMediaList() {
                 ? { borderBottom: "2px solid white", cursor: "pointer" }
                 : { cursor: "pointer" }
             }
-            className="offcanvas-title"
-          >
+            className="offcanvas-title">
             Tv Shows
           </h3>
           <button
             type="button"
             className="btn btn-secondary btn-sm btn__close d-flex"
             data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          >
+            aria-label="Close">
             <i className="fas fa-times"></i>
           </button>
         </div>
@@ -102,7 +100,7 @@ function ListItem({ media, index, handleClick = () => {} }) {
   }, []);
 
   return (
-    <div
+    <Link
       onClick={() => {
         setIsLoading(true);
         handleClick(media.id);
@@ -110,24 +108,22 @@ function ListItem({ media, index, handleClick = () => {} }) {
           setIsLoading(false);
         }, 1000);
       }}
+      href={DETAIL_URL + "/" + media.id}
       key={"listItem-" + index}
-      className="offCanvasMediaList__item d-flex w-100 justify-content-between align-items-center px-4"
-    >
+      className="offCanvasMediaList__item d-flex w-100 justify-content-between align-items-center px-4">
       <div className="d-flex flex-column aling-items-center justify-content-between gap-2">
         <div className="d-flex gap-2">
           <h5
             className="truncate"
             style={
               queryInfo.desktop ? { maxWidth: "25vw" } : { maxWidth: "60vw" }
-            }
-          >
+            }>
             {media.title || media.original_name}
           </h5>
           {isLoading && (
             <div
               className="spinner-border spinner-border-sm text-white"
-              role="status"
-            >
+              role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
           )}
@@ -151,6 +147,6 @@ function ListItem({ media, index, handleClick = () => {} }) {
           />
         )}
       </div>
-    </div>
+    </Link>
   );
 }
