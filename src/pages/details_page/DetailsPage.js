@@ -19,6 +19,8 @@ function DetailsPage() {
   const { getMovieSelected } = useFetchSelectedMovie();
   const { getTvShowSelected } = useFetchSelectedtvShow();
 
+  console.log(detailsInfo);
+
   return (
     <section className="MainBackground">
       {!detailsInfo.loaded ? (
@@ -135,13 +137,20 @@ function DetailsPage() {
                             }
                       }
                       className="relatedMovies__images--container">
-                      <img
-                        alt=""
-                        src={
-                          "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" +
-                          related?.poster_path
-                        }
-                      />
+                      {related?.poster_path === null ||
+                      related?.backdrop_path === null ? (
+                        <div className="relatedMovies__images-no-image">
+                          <h4>{related.title}</h4>
+                        </div>
+                      ) : (
+                        <img
+                          alt=""
+                          src={
+                            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" +
+                            related?.poster_path
+                          }
+                        />
+                      )}
                     </div>
                   </li>
                 ))}
@@ -152,8 +161,8 @@ function DetailsPage() {
             <div className="image__detailsPage--image--container">
               {detailsInfo?.poster_path === null ? (
                 <Image
-                height={900}
-                width={600}
+                  height={900}
+                  width={600}
                   alt="film-pic"
                   src="/images/no_loading.gif"
                 />

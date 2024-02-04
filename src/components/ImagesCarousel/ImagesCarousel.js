@@ -3,7 +3,6 @@ import Carousel from "react-multi-carousel";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./ImagesCarousel.css";
-import Image from "next/image";
 
 function ImagesCarousel({ mediaToRender }) {
   const queryInfo = useSelector((state) => state.queryReducer);

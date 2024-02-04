@@ -110,6 +110,17 @@
   width: 100%;
   height: 100%;
 }
+
+.relatedMovies__images-no-image {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .info__detailsPage--section-text {
   padding-left: 0vw;
   padding-right: 5vw;
