@@ -1,5 +1,14 @@
-// let initialState = JSON.parse(window.localStorage.getItem("app_mediaquery"));
-let initialState = null;
+"use client";
+
+let clientWindow = null;
+
+if (typeof window !== "undefined") {
+  clientWindow = window;
+}
+
+let initialState = JSON.parse(
+  clientWindow.localStorage.getItem("app_mediaquery")
+);
 
 if (initialState === null) {
   initialState = initialState = {
@@ -16,10 +25,10 @@ export const queryReducer = (state = initialState, action) => {
       const mediaQueryPastState = state;
       const mediaQueryNewState = action.payload;
       Object.assign(mediaQueryPastState, mediaQueryNewState);
-      // window.localStorage.setItem(
-      //   "app_mediaquery",
-      //   JSON.stringify({ ...state }),
-      // );
+      clientWindow.localStorage.setItem(
+        "app_mediaquery",
+        JSON.stringify({ ...state })
+      );
       return { ...state };
     default:
       return state;
