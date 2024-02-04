@@ -7,9 +7,9 @@ import MainBackground from "../../components/MainBackground/MainBackground";
 import OffCanvasMediaList from "../../components/OffCanvasMediaList/OffCanvasMediaList";
 import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
 import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
+import Image from "next/image";
 
 import "./DetailsPage.css";
-import Image from "next/image";
 
 function DetailsPage() {
   const detailsInfo = useSelector((state) => state.detailsReducer);
@@ -18,8 +18,6 @@ function DetailsPage() {
   // hooks
   const { getMovieSelected } = useFetchSelectedMovie();
   const { getTvShowSelected } = useFetchSelectedtvShow();
-
-  console.log(detailsInfo);
 
   return (
     <section className="MainBackground">

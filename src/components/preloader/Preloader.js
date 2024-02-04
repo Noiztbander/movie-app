@@ -1,26 +1,25 @@
 "use client";
 
 import { useRef } from "react";
-import * as THREE from "three";
+import { LoadingManager, ImageLoader } from "three";
 import "./Preloader.css";
 
 const Preloader = ({ setPercent }) => {
   const progressBarRef = useRef(null);
   const progressTextRef = useRef(null);
-  const manager = new THREE.LoadingManager();
+  const manager = new LoadingManager();
 
   manager.onProgress = function (_item, loaded, total) {
     if (progressTextRef.current && progressBarRef.current) {
       progressBarRef.current.style.width = (loaded / total) * 100 + "%";
       progressTextRef.current.innerHTML = (loaded / total) * 100 + "%";
-			setPercent(loaded * 100)
-      console.log({ loaded, total });
+      setPercent(loaded * 100);
     }
   };
 
   function addRandomPlaceHoldItImage() {
     var r = Math.round(Math.random() * 4000);
-    new THREE.ImageLoader(manager).load("//picsum.photos/" + r + "/" + r);
+    new ImageLoader(manager).load("//picsum.photos/" + r + "/" + r);
   }
 
   for (var i = 0; i < 10; i++) addRandomPlaceHoldItImage();
