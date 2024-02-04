@@ -7,7 +7,7 @@ import MoviesProvider from "@/api/movies_provider/MoviesProvider";
 
 export default function Home() {
   return (
-    <Provider store={reduxStore}>
+    <Provider store={reduxStore || {}}>
       <MoviesProvider>
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
