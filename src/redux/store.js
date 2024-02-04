@@ -17,5 +17,5 @@ const reducers = combineReducers({
 
 export const reduxStore = createStore(
   reducers,
-  composeWithDevTools(applyMiddleware(thunk)),
+  composeWithDevTools(applyMiddleware(thunk))
 );

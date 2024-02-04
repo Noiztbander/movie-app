@@ -7,7 +7,7 @@ import MoviesProvider from "@/api/movies_provider/MoviesProvider";
 
 export default function Details() {
   return (
-    <Provider store={reduxStore}>
+    <Provider store={reduxStore || {}}>
       <MoviesProvider>
         <DetailsPage />
       </MoviesProvider>

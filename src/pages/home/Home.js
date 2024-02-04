@@ -9,8 +9,6 @@ import OffCanvasMediaList from "../../components/OffCanvasMediaList/OffCanvasMed
 import { useFetchSelectedtvShow } from "../../hooks/useFetchSelectedtvShow";
 import { useFetchSelectedMovie } from "../../hooks/useFetchSelectedMovie";
 import LoadingButton from "../../components/LoadingButton/LoadingButton";
-import { redirect } from "next/navigation";
-import { DETAIL_URL } from "@/routes";
 
 import "./Home.css";
 
