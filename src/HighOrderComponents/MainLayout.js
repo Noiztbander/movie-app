@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import MainHeader from "../components/MainHeader/MainHeader";
 import MainAside from "../components/MainAside/MainAside";
 import { reduxStore } from "@/redux/store";
 import { Provider } from "react-redux";
 import MoviesProvider from "@/api/movies_provider/MoviesProvider";
 import "./MainLayout.css";
-import Preloader from "@/components/preloader/Preloader";
 
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || "Component";
@@ -19,9 +18,6 @@ function MainLayout(WrappedComponent) {
   )})`;
 
   function WrapperComponent({ ...props }) {
-    const [percent, setPercent] = useState(0);
-    console.log(percent);
-
     return (
       <Provider store={reduxStore || {}}>
         <MoviesProvider>
@@ -32,11 +28,7 @@ function MainLayout(WrappedComponent) {
           <section className="MainLayout">
             <MainHeader />
             <MainAside />
-            {percent === 100 ? (
-              <WrappedComponent {...props} />
-            ) : (
-              <Preloader setPercent={setPercent} />
-            )}
+            <WrappedComponent {...props} />
           </section>
         </MoviesProvider>
       </Provider>
